@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "offlineforge"
+version = "0.1.0"
+description = "Offline reinforcement learning with exact tabular ground truth (FQI / CFQI control + FQE / WIS off-policy evaluation)"
+authors = [{ name = "晨星", email = "CJX0712@users.noreply.github.com" }]
+requires-python = ">=3.10"
+readme = "README.md"
+license = { text = "MIT" }
+keywords = ["offline-rl", "reinforcement-learning", "ope", "fqi", "cql", "importance-sampling"]
+dependencies = [
+    "numpy>=1.26",
+    "scikit-learn>=1.3",
+]
+
+[project.urls]
+Homepage = "https://github.com/CJX0712/offlineforge"
+Repository = "https://github.com/CJX0712/offlineforge"
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "ruff>=0.5"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["offlineforge*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "UP", "B", "C4", "SIM"]
+ignore = ["B008", "SIM108"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["offlineforge"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "-q -W ignore::UserWarning -W ignore::DeprecationWarning"

@@ -1,0 +1,10 @@
+# OfflineForge — runtime + dev dependencies (compatible-release pins)
+# Exact locked versions live in requirements.lock.txt
+
+# Runtime (OfflineForge core uses only numpy + scikit-learn)
+numpy>=1.26,<3.0
+scikit-learn>=1.5.0
+
+# Dev / CI
+pytest>=7.0
+ruff>=0.5
